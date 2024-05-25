@@ -11,8 +11,8 @@ import useMyProducts from "../../Hook/useMyProducts";
 import useAdmin from "../../Hook/useAdmin";
 
 const NavbarTwo = () => {
-    // const [isAdmin] = useAdmin()
-    const isAdmin = true
+    const [isAdmin] = useAdmin()
+    // const isAdmin = true
     const [myProducts] = useMyProducts()
 // night mode starts
 const [theme,setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light")
