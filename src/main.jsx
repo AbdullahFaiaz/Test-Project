@@ -30,6 +30,8 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import Users from './Pages/Private/Users';
+import AddImage from './Pages/Private/AddImage';
+import Buy from './Pages/Private/Buy';
 
 const queryClient = new QueryClient()
 //tan stack query ______________________________
@@ -53,7 +55,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/add",
-        element: <PrivateRoute><Add/></PrivateRoute>
+        // element: <PrivateRoute><Add/></PrivateRoute>
+        element: <PrivateRoute><AddImage/></PrivateRoute>
       },
       {
         path:"/login",
@@ -87,6 +90,11 @@ const router = createBrowserRouter([
         path: "/details/:id",
         element: <PrivateRoute>  <ViewDetails/> </PrivateRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
+      },
+      {
+        path: "/payment/:id",
+        element: <PrivateRoute>  <Buy></Buy> </PrivateRoute>,
+        // loader: ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
       },
 
     ],

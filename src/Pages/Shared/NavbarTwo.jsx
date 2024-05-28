@@ -11,8 +11,8 @@ import useMyProducts from "../../Hook/useMyProducts";
 import useAdmin from "../../Hook/useAdmin";
 
 const NavbarTwo = () => {
-    const [isAdmin] = useAdmin()
-    // const isAdmin = true
+    // const [isAdmin] = useAdmin()
+    const isAdmin = true
     const [myProducts] = useMyProducts()
 // night mode starts
 const [theme,setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light")
@@ -62,7 +62,7 @@ const handleTheme = (e) => {
 
 
   return (
-    <div className="w-full z-50 bg-cover bg-bottom text-[3vw] sm:text-[2.5vw] md:text-[1.7vw] lg:text-[1.3vw] bg-black" 
+    <div className="rounded-full fixed ml-[5%] w-[90%] my-2 z-50 bg-cover bg-bottom text-[3vw] sm:text-[2.5vw] md:text-[1.7vw] lg:text-[1vw] bg-black" 
     // style={{ backgroundImage: `url(${footerImage})` }} 
     >
         <div className="navbar bg-[#0f020200] rounded-md text-white">
@@ -115,7 +115,7 @@ const handleTheme = (e) => {
 
 
 
-            <a className="text-[5.5vw] sm:text-[5vw] md:pl-[2vw] md:text-[4vw] lg:text-[3vw] w-full">Adventure Avenue</a>
+            <a className="text-[5.5vw] sm:text-[5vw] md:pl-[2vw] md:text-[4vw] lg:text-[2vw] w-full">Adventure Avenue</a>
         </div>
         <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
@@ -141,13 +141,13 @@ const handleTheme = (e) => {
             {/* night mode ends ___________________________________________________________________________________*/}
                    {user ? (
                         <>
-                            <button className="mr-[2vw] text-[4.2vw] font-light sm:font-normal sm:text-[2.5] md:text-[2.2vw] lg:text-[1.8vw]" onClick={handleLogOut}>
+                            <button className="mr-[2vw] text-[4vw] font-light sm:font-normal sm:text-[2.5] md:text-[2.2vw] lg:text-[1.2vw]" onClick={handleLogOut}>
                                 Log Out
                             </button>
 
                             <span
                                title={user?.displayName || "User name not found"}
-                                className="rounded-full sm:mr-[2vw] h-[9vw] w-[9vw] sm:h-[6vw] sm:w-[6vw] md:h-[4vw] md:w-[4vw] overflow-hidden border-2 border-[#e8ae29] shadow-lg"
+                                className="rounded-full sm:mr-[2vw] h-[9vw] w-[9vw] sm:h-[6vw] sm:w-[6vw] md:h-[3vw] md:w-[3vw] overflow-hidden border-2 border-[#e8ae29] shadow-lg"
                             >
                                 <Link to={"/userProfile"}>
                                 {/* <a data-tooltip-id="my-tooltip"

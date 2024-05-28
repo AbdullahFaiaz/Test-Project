@@ -12,7 +12,7 @@ const Users = () => {
         queryFn: async () => {
             const res = await axiosSecure.get("/users")
             return res.data
-        }
+        }, enabled: !! localStorage.getItem('access-token')
     })
     
     const handleAdmin = (id) => {

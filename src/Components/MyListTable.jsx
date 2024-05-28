@@ -64,7 +64,7 @@ const {image,product_type,size,fabric,color,price,occasion,email,user_name,_id} 
       {/* row 1 */}
       <tr className="bg-base-200 flex flex-col sm:items-center sm:flex-row">
         <span className='sm:w-[40%] md:w-[35%] lg:w-[27%]'>
-        <th>{image}</th>
+        <img className='h-10 w-20' src={image}/>
         <td>{product_type}</td>
         <td>${price}</td>
         </span>

@@ -4,11 +4,18 @@ import { AuthContext } from '../../Context/ContextComponent';
 import coolbg from "../../assets/cool-3.png"
 import { Helmet } from 'react-helmet-async';
 import useMyProducts from '../../Hook/useMyProducts';
+import { useForm } from "react-hook-form";
 
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 const Add = () => {
+    const { register, handleSubmit } = useForm()
     const [,refetch] = useMyProducts()
     const {user} = useContext(AuthContext)
+    const onSubmit = async (data) => {
 
+
+    }
     const handleAddTouristsSpot = event => {
         event.preventDefault();
 
@@ -20,6 +27,7 @@ const Add = () => {
     // "occasion": "Casual",
     // "image": "panjabi_pink_chiffon_casual.jpg"
         const image = form.image.value;
+        const imageFile = form.imageFile.value;
         const product_type = form.product_type.value;
         const size = form.size.value;
         const fabric = form.fabric.value;
@@ -29,6 +37,10 @@ const Add = () => {
         const email = form.email.value;
         const user_name = form.user_name.value;
     
+
+        console.log(imageFile)
+
+
         const newProduct = {
             image,
             product_type,
@@ -78,7 +90,7 @@ const Add = () => {
     </Helmet>
         <h2 className="text-3xl text-gray-700 font-extrabold">Add a Tourists Spot</h2>
         <form onSubmit={handleAddTouristsSpot}>
-            
+          
             
         <div className='flex flex-col md:flex-row gap-8'>
             <div className='w-full'>
@@ -90,6 +102,17 @@ const Add = () => {
                     </label>
                     <label className="input-group">
                         <input type="text" name="image" placeholder="Image URL" className="input input-bordered w-full" />
+                    </label>
+                </div>
+            </div>
+
+            <div className="mb-8">
+                <div className="form-control w-full">
+                    <label className="label">
+                        <span className="text-gray-700 label-text">Image</span>
+                    </label>
+                    <label className="input-group">
+                        <input type="file" name="imageFile" placeholder="Image" className="" />
                     </label>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 import { Helmet } from "react-helmet-async";
 import { ToastContainer} from 'react-toastify';
@@ -34,6 +34,9 @@ return (
                         <li><strong>Seller:</strong> {user_name} ({email})</li>
                     </ul>
                 </div>
+                <Link to={`/payment/${_id}`}>
+                <button>Buy Now</button>
+                </Link>
             </div>
         </div>
     );

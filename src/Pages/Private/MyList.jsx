@@ -6,6 +6,7 @@ import MyListTable from "../../Components/MyListTable";
 import { Helmet } from "react-helmet-async";
 import axios from "axios";
 import { AuthContext } from "../../Context/ContextComponent";
+import useMyProducts from "../../Hook/useMyProducts";
 
 
 
@@ -14,15 +15,16 @@ const MyList = () => {
 
 
 
-const [myProducts, setMyProducts] = useState([])
+// const [myProducts, setMyProducts] = useState([])
 const {user} = useContext(AuthContext)
 // console.log("user from the my list: ",user?.email)
-    useEffect(()=>{
-        axios.get(`http://localhost:5000/myProducts?email=${user?.email}`)
-        .then(data => {
-            setMyProducts(data.data)
-        })
-    },[user?.email])
+const [myProducts, refetch] = useMyProducts()
+    // useEffect(()=>{
+    //     axios.get(`http://localhost:5000/myProducts?email=${user?.email}`)
+    //     .then(data => {
+    //         setMyProducts(data.data)
+    //     })
+    // },[user?.email])
 
 
 

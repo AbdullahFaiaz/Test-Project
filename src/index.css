@@ -6,7 +6,7 @@
 
 
 ul span{
-    @apply px-[1.3vw] py-[0.7vw] rounded-md text-[1.3vw] hover:text-[#e8ae29]
+    @apply px-[1.3vw] rounded-md text-[1.3vw] hover:text-[#e8ae29]
   }
  .active span{
     @apply bg-[#e8ae29] text-black hover:text-black
